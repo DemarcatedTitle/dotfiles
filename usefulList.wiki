@@ -1,0 +1,20 @@
+= Vim Plugins =
+pathogen
+jedi-vim
+mucomplete
+matchtagalways
+nerdtree
+tern for vim
+vim-airline
+vim-colorschemes
+vim-commentary
+vim-indent-guide
+vim-misc
+snippets
+surround
+syntastic
+
+= CLI =
+tmux
+zsh
+
