@@ -13,6 +13,7 @@ vim-misc
 snippets
 surround
 syntastic
+ctrlp
 
 = CLI =
 tmux
