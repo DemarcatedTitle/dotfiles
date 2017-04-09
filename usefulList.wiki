@@ -19,3 +19,28 @@ ctrlp
 tmux
 zsh
 
+= xstow =
+I was looking for an easy way to deal with installing things that aren't in the
+package manager, like for example the "latest" binaries of java or things like
+that. 
+
+I saw xstow and remembered hearing about it elsewhere, here's the basic usage:
+install that from packagemanager (newest version not likely to have anything
+special, at least I don't think so).
+
+cd to /usr/local
+sudo mkdir stow
+sudo vim xstow.ini
+add the following:
+`
+[traverse-links]
+link = /usr/local/man
+`
+I'm not sure if the [traverse-links] part is necessary, but it is seeming to
+work for me. 
+
+After saving that,
+(in /usr/local/stow)
+sudo xstow jre1.8.0_121
+
+And now it's usable and the man pages are there too. 

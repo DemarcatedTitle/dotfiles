@@ -1,46 +1,27 @@
 execute pathogen#infect()
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_HTML_checkers= ['jshint']
+"HTML vs html matters
+let g:syntastic_html_checkers= ['jshint']
 let g:syntastic_json_checkers = ['jsonlint']
 if $SHELL =~ 'bin/fish'
   set shell=/bin/sh
 endif
 set term=xterm-256color
 " let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-
-
-" ##snippet stuff
-" let g:UltiSnipsExpandTrigger = "<nop>"
-" let g:ulti_expand_or_jump_res = 0
-" function ExpandSnippetOrCarriageReturn()
-"     let snippet = UltiSnips#ExpandSnippetOrJump()
-"     if g:ulti_expand_or_jump_res > 0
-"         return snippet
-"     else
-"         return "\<CR>"
-"     endif
-" endfunction
-" inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
-
-" hi nontext ctermbg=none
+"***
 set foldmethod=marker
-
 colo jellybeans 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 "
 " " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
-
 " " Move to the previous buffer
 nmap <leader>h :bprevious<CR>
-
 " " Move to the previous buffer
 nmap <leader>q :bd<CR>
-
 let NERDTreeQuitOnOpen=1
 set t_Co=256 
 " highlight normal ctermbg=none
@@ -54,10 +35,10 @@ set completeopt+=menuone
 " basic comment. 
 " set complete-=i
 " set complete-=t
-" let g:mucomplete#chains = { 'default' : ['omni'] }
-" set noshowmode shortmess+=c
-" set completeopt-=preview
-" set completeopt+=menuone,noinsert,noselect
+let g:mucomplete#chains = { 'default' : ['omni', 'ulti'] }
+set noshowmode shortmess+=c
+set completeopt-=preview
+set completeopt+=menuone,noinsert,noselect
 " set completeopt+=noinsert
 " set noinfercase
 " let g:clang_library_path = '/usr/local/opt/llvm/lib/libclang.dylib'
@@ -98,3 +79,29 @@ autocmd BufRead,BufNewFile *.wiki setlocal spell
 set fdm=marker
 au FileType vimwiki set textwidth=80
 au FileType python set formatoptions=croql
+command! -nargs=+ NewGrep execute 'silent grep! -m 1 -r <args>' | copen 10
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/* 
+" :g//# 
+" ^ when typed and executed, does an interesting thing that shows you the lines where your search 
+" query is found
+" This makes leader space remove the highlight from a search
+nnoremap <leader><space> :noh<cr>
+" line 111 is for transparency friendliness. 
+hi Normal ctermbg=none
+highlight NonText ctermbg=none
+
+" ##snippet stuff
+" For ultisnips and mucomplete apparently ultisnips needs to be the up to date
+" one, not the one from the vim-addon-manager package installed with apt-get
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
