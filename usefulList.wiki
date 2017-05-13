@@ -44,3 +44,34 @@ After saving that,
 sudo xstow jre1.8.0_121
 
 And now it's usable and the man pages are there too. 
+
+An easy method of adding what things you installed without having to type it out
+to a list like this is ls -f ~/.vim/bundle >> usefulList.wiki
+
+
+emmet-vim
+vim-jsx
+vim-javascript
+.
+vim-mucomplete
+javascript.snippets
+dockerSyntax
+ctrlp.vim
+..
+syntastic
+ultisnips
+jedi-vim
+emmet-vim
+vim-jsx
+vim-javascript
+neoformat
+.
+vim-mucomplete
+dockerSyntax
+ctrlp.vim
+tern_for_vim
+..
+onedark.vim
+syntastic
+ultisnips
+jedi-vim

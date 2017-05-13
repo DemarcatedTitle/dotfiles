@@ -1,7 +1,8 @@
 execute pathogen#infect()
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 "HTML vs html matters
-let g:syntastic_html_checkers= ['jshint']
+" let g:syntastic_html_checkers= ['jshint']
+let g:syntastic_html_checkers= ['eslint']
 let g:syntastic_json_checkers = ['jsonlint']
 if $SHELL =~ 'bin/fish'
   set shell=/bin/sh
@@ -10,7 +11,7 @@ set term=xterm-256color
 " let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 "***
 set foldmethod=marker
-colo jellybeans 
+colo onedark
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 "
@@ -35,7 +36,7 @@ set completeopt+=menuone
 " basic comment. 
 " set complete-=i
 " set complete-=t
-let g:mucomplete#chains = { 'default' : ['omni', 'ulti'] }
+let g:mucomplete#chains = { 'default' : ['file', 'ulti','omni'] }
 set noshowmode shortmess+=c
 set completeopt-=preview
 set completeopt+=menuone,noinsert,noselect
@@ -71,8 +72,10 @@ set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 " set noexpandtab
-set shiftwidth=2
-set softtabstop=2
+" set shiftwidth=2
+" set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 " From Sam's vimrc^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 autocmd BufRead,BufNewFile *.wiki setlocal spell
 
@@ -87,6 +90,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 " query is found
 " This makes leader space remove the highlight from a search
 nnoremap <leader><space> :noh<cr>
+nnoremap <leader>t :put =strftime('%c')<cr>
 " line 111 is for transparency friendliness. 
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
@@ -105,3 +109,15 @@ function ExpandSnippetOrCarriageReturn()
     endif
 endfunction
 inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
+let g:jsx_ext_required = 0
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+autocmd FileType javascript.jsx,javascript setlocal formatprg=prettier\ --tab-width\ 4
+" autocmd BufWritePre *.js :normal gggqG
+nmap <leader>f gggqG
+let g:neoformat_try_formatprg = 1
+autocmd BufWritePre *.js Neoformat
+
+
+let g:UltiSnipsSnippetDirectories=[ "mySnippets", "UltiSnips"]
+let g:onedark_termcolors=256
