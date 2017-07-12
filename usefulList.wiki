@@ -1,3 +1,6 @@
+= Easy to use extend to left monitor command =
+xrandr --output HDMI1 --auto --left-of eDP1
+
 = Vim Plugins =
 pathogen
 jedi-vim
