@@ -2,6 +2,7 @@
 xrandr --output HDMI1 --auto --left-of eDP1
 
 = Vim Plugins =
+https://github.com/tpope/vim-fugitive
 pathogen
 jedi-vim
 mucomplete
