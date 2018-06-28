@@ -131,7 +131,8 @@ set background=dark
 let g:deoplete#enable_at_startup = 1
 
 " FZF
-set runtimepath^=~/devstuff/fzf/bin/fzf
+" set runtimepath^=~/.fzf/bin
+set rtp+=~/.fzf
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path="0;33"', <bang>0)
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],

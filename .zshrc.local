@@ -56,3 +56,4 @@ alias extendleft='xrandr --output HDMI1 --auto --left-of eDP1'
 # alias chatApp="tmux -2 new-session -c ~/devstuff/chatApp/ -s chatApp tmux split-window -b -h -l 40"
 alias chatApp="tmux -2 new-session -c ~/devstuff/chatApp/back-end -s chatApp \; split-window -b -h -l 40 -c '#{pane_current_path}' \; new-window -c ~/devstuff/chatApp/front-end \; split-window -b -h -l 40 -c '#{pane_current_path}'\; neww -c ~/devstuff/chatApp"
 alias walkGrid="tmux -2 new-session -c ~/devstuff/learningReact/api -s walkGrid \; split-window -b -h -l 40 -c '#{pane_current_path}' \; new-window -c ~/devstuff/learningReact/walkgrid \; split-window -b -h -l 40 -c '#{pane_current_path}'\; neww -c ~/devstuff/learningReact"
+alias copy="/mnt/c/Windows/System32/clip.exe"
